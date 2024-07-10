@@ -41,9 +41,10 @@ UI界面：JSP、jQuery、H-ui
 <img width="652" alt="Snipaste_2023-03-22_18-06-38" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/73b2341f-cc79-4bef-bc8a-b5d7a239c470">
 <img width="652" alt="Snipaste_2023-03-22_18-06-38" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/0c473598-424b-45f2-9a62-cabf7eac4761">
 <img width="384" alt="Snipaste_2023-03-22_18-09-27" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/4f13673b-927c-4353-9d3e-fe1c4422459a">
-<img width="384" alt="Snipaste_2023-03-22_18-09-27" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/00cada4b-42dd-421e-a917-318cdf3cbe1f">
-<img width="384" alt="Snipaste_2023-03-22_18-09-27" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/0b8b5bf1-b62e-4976-baa9-1ecd154e3e21">
-<img width="384" alt="Snipaste_2023-03-22_18-09-27" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/6d45d1d9-ec45-4e63-902d-8d4455bc196a">
+
+<img width="956" alt="Snipaste_2023-03-22_18-10-04" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/660d10bc-be35-48a9-ac30-feec0924a2eb">
+<img width="951" alt="Snipaste_2023-03-22_18-10-38" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/fc2f85b4-f1b0-49f4-8cec-5f7f8fce6f44">
+<img width="955" alt="Snipaste_2023-03-22_18-11-29" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/04549ba2-3800-4697-9be2-105a0cc07dc3">
 
 完整代码收费 可以加微信FY-yuanma 咨询 接毕业设计和论文
 

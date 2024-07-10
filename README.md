@@ -32,6 +32,8 @@ UI界面：JSP、jQuery、H-ui
 2.后台管理模块
 
 系统后台登陆、管理员信息管理、用户信息管理、新闻分类管理、新闻内容管理、用户评论管理、提示问题管理、意见反馈管理等功能。
+<img width="778" alt="Snipaste_2023-03-22_18-06-24" src="https://github.com/Good-Night-Unicorn/News-release-management-system/assets/84435241/d56da6bd-28e9-4d6a-8566-7d341b9d032d">
+
 
 
 完整代码收费 可以加微信FY-yuanma 咨询 接毕业设计和论文

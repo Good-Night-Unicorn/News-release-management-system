@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置关于提示问题表的 MyBatis映射文件 -->
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.dao.AsksDAO">
+	<resultMap type="asks" id="asksMap">
+		<id property="asksid" column="asksid" />
+		<result property="question" column="question" />
+		<result property="addtime" column="addtime" />
+		<result property="memo" column="memo" />
+	</resultMap>
+
+	<!-- 提示问题表 插入SQL语句  AsksDAO通过ID(insertAsks)调用此配置 -->
+	<insert id="insertAsks" parameterType="asks">  
+		insert into asks(asksid  , question  , addtime  , memo ) values(#{asksid}  , #{question}   , #{addtime}   , #{memo} )
+	</insert>
+
+	<!-- 提示问题表 更新SQL语句  AsksDAO通过ID(updateAsks)调用此配置 -->
+	<update id="updateAsks" parameterType="asks">
+		update asks set  question=#{question}  , addtime=#{addtime}  , memo=#{memo}  where asksid=#{asksid}
+	</update>
+
+	<!-- 提示问题表 按主键删除SQL语句  AsksDAO通过ID(deleteAsks)调用此配置 -->
+	<delete id="deleteAsks" parameterType="String">
+		delete from asks where asksid = #{asksid}
+	</delete>
+
+	<!-- 提示问题表 查询全部提示问题信息SQL语句  AsksDAO通过ID(getAllAsks)调用此配置  -->
+	<select id="getAllAsks" resultMap="asksMap">
+		select a.*  from asks a  where 1=1  order by asksid desc
+	</select>
+
+	<!-- 提示问题表 按主键(asksid)查询SQL语句 AsksDAO通过ID(getAsksById)调用此配置  -->
+	<select id="getAsksById" parameterType="String" resultMap="asksMap">
+		select a.*  from asks a  where 1=1 and asksid=#{asksid} order by asksid desc
+	</select>
+
+	<!-- 提示问题表 按条件精确查询SQL语句 AsksDAO通过ID(getAsksByCond)调用此配置  -->
+	<select id="getAsksByCond" parameterType="asks" resultMap="asksMap">
+		select a.*  from asks a  where 1=1 
+		<if test="question != null and '' != question">
+			and a.question = #{question}  
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime = #{addtime}  
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo = #{memo}  
+		</if>
+	</select>
+
+	<!-- 提示问题表 按条件模糊查询SQL语句 AsksDAO通过ID(getAsksByLike)调用此配置  -->
+	<select id="getAsksByLike" parameterType="asks" resultMap="asksMap">
+		select a.*  from asks a  where 1=1 
+		<if test="question != null and '' != question">
+			and a.question like CONCAT('%', CONCAT(#{question}, '%'))
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime like CONCAT('%', CONCAT(#{addtime}, '%'))
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo like CONCAT('%', CONCAT(#{memo}, '%'))
+		</if>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

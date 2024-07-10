@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis.xml作用：配置连接数据库的所有需要的环境 ， 必须连接到所有要使用的映射文件。 -->
+<configuration>
+	<!-- 配置别名：在MyBatis中为一个类取别名，配置别名是为了在对象映射文件中接收参数类型和返回参数类型时使用 -->
+	<typeAliases>
+		<typeAlias alias="admin" type="com.entity.Admin" /><!-- 管理员表别名为admin 映射类是 com.entity.Admin -->
+		<typeAlias alias="users" type="com.entity.Users" /><!-- 网站用户表别名为users 映射类是 com.entity.Users -->
+		<typeAlias alias="banner" type="com.entity.Banner" /><!-- 新闻分类表别名为banner 映射类是 com.entity.Banner -->
+		<typeAlias alias="article" type="com.entity.Article" /><!-- 新闻内容表别名为article 映射类是 com.entity.Article -->
+		<typeAlias alias="fav" type="com.entity.Fav" /><!-- 用户收藏表别名为fav 映射类是 com.entity.Fav -->
+		<typeAlias alias="topic" type="com.entity.Topic" /><!-- 用户评论表别名为topic 映射类是 com.entity.Topic -->
+		<typeAlias alias="asks" type="com.entity.Asks" /><!-- 提示问题表别名为asks 映射类是 com.entity.Asks -->
+		<typeAlias alias="complains" type="com.entity.Complains" /><!-- 意见反馈表别名为complains 映射类是 com.entity.Complains -->
+	</typeAliases>
+
+	<!-- mappers 标签是用来配置需要加载的 SQL 映射配置文件路径 -->
+	<mappers>
+		<mapper resource="mapper/admin.xml" /> <!-- 管理员映射文件 -->
+		<mapper resource="mapper/users.xml" /> <!-- 网站用户映射文件 -->
+		<mapper resource="mapper/banner.xml" /> <!-- 新闻分类映射文件 -->
+		<mapper resource="mapper/article.xml" /> <!-- 新闻内容映射文件 -->
+		<mapper resource="mapper/fav.xml" /> <!-- 用户收藏映射文件 -->
+		<mapper resource="mapper/topic.xml" /> <!-- 用户评论映射文件 -->
+		<mapper resource="mapper/asks.xml" /> <!-- 提示问题映射文件 -->
+		<mapper resource="mapper/complains.xml" /> <!-- 意见反馈映射文件 -->
+	</mappers>
+</configuration>
+
+

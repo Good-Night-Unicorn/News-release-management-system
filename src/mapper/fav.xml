@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置关于用户收藏表的 MyBatis映射文件 -->
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.dao.FavDAO">
+	<resultMap type="fav" id="favMap">
+		<id property="favid" column="favid" />
+		<result property="usersid" column="usersid" />
+		<result property="articleid" column="articleid" />
+		<result property="addtime" column="addtime" />
+		<result property="username" column="username" />
+		<result property="title" column="title" />
+		<!-- 通过外键关联查询  返回封装Users对象 -->
+		<association property="users" column="usersid" select="com.dao.UsersDAO.getUsersById" javaType="com.entity.Users" />
+		<!-- 通过外键关联查询  返回封装Article对象 -->
+		<association property="article" column="articleid" select="com.dao.ArticleDAO.getArticleById" javaType="com.entity.Article" />
+	</resultMap>
+
+	<!-- 用户收藏表 插入SQL语句  FavDAO通过ID(insertFav)调用此配置 -->
+	<insert id="insertFav" parameterType="fav">  
+		insert into fav(favid  , usersid  , articleid  , addtime ) values(#{favid}  , #{usersid}   , #{articleid}   , #{addtime} )
+	</insert>
+
+	<!-- 用户收藏表 更新SQL语句  FavDAO通过ID(updateFav)调用此配置 -->
+	<update id="updateFav" parameterType="fav">
+		update fav set  usersid=#{usersid}  , articleid=#{articleid}  , addtime=#{addtime}  where favid=#{favid}
+	</update>
+
+	<!-- 用户收藏表 按主键删除SQL语句  FavDAO通过ID(deleteFav)调用此配置 -->
+	<delete id="deleteFav" parameterType="String">
+		delete from fav where favid = #{favid}
+	</delete>
+
+	<!-- 用户收藏表 查询全部用户收藏信息SQL语句  FavDAO通过ID(getAllFav)调用此配置  -->
+	<select id="getAllFav" resultMap="favMap">
+		select a.* , b.username , c.title  from fav a , users b , article c  where 1=1 and a.usersid = b.usersid and a.articleid = c.articleid  order by favid desc
+	</select>
+
+	<!-- 用户收藏表 按主键(favid)查询SQL语句 FavDAO通过ID(getFavById)调用此配置  -->
+	<select id="getFavById" parameterType="String" resultMap="favMap">
+		select a.* , b.username , c.title  from fav a , users b , article c  where 1=1 and a.usersid = b.usersid and a.articleid = c.articleid and favid=#{favid} order by favid desc
+	</select>
+
+	<!-- 用户收藏表 按条件精确查询SQL语句 FavDAO通过ID(getFavByCond)调用此配置  -->
+	<select id="getFavByCond" parameterType="fav" resultMap="favMap">
+		select a.* , b.username , c.title  from fav a , users b , article c  where 1=1 and a.usersid = b.usersid and a.articleid = c.articleid 
+		<if test="usersid != null and '' != usersid">
+			and a.usersid = #{usersid}  
+		</if>
+		<if test="articleid != null and '' != articleid">
+			and a.articleid = #{articleid}  
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime = #{addtime}  
+		</if>
+	</select>
+
+	<!-- 用户收藏表 按条件模糊查询SQL语句 FavDAO通过ID(getFavByLike)调用此配置  -->
+	<select id="getFavByLike" parameterType="fav" resultMap="favMap">
+		select a.* , b.username , c.title  from fav a , users b , article c  where 1=1 and a.usersid = b.usersid and a.articleid = c.articleid 
+		<if test="usersid != null and '' != usersid">
+			and b.username like CONCAT('%', CONCAT(#{usersid}, '%'))
+		</if>
+		<if test="articleid != null and '' != articleid">
+			and c.title like CONCAT('%', CONCAT(#{articleid}, '%'))
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime like CONCAT('%', CONCAT(#{addtime}, '%'))
+		</if>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
